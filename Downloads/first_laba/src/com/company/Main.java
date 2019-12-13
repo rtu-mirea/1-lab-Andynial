@@ -9,11 +9,11 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);  // Create a Scanner object
-        System.out.print("Ыведите значение:");
+        System.out.print("Введите значение: ");
         int zad = scan.nextInt();
         int[] arr = new int[5];
         for (int i = 0; i < arr.length; i++){
-            System.out.print("Введите" + ( i + 1) + "-е значение массива:");
+            System.out.print("Введите " + ( i + 1) + "-е значение массива:");
             arr[i] = scan.nextInt();
         }
 
@@ -28,9 +28,23 @@ public class Main {
             if (arr[i] == max)
                 count++;
 
-         if (count > zad)
-             System.out.println("Максимальное значение встречается больше заданного числа.");
-         else
-             System.out.println("Максимальное значение встречается меньше заданного числа.");
+        if (count > zad)
+            System.out.println("Максимальное значение встречается больше заданного числа.");
+        else
+            System.out.println("Максимальное значение встречается меньше заданного числа.");
+
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++)
+            for (int j = 0; j < n-i-1; j++)
+                if (arr[j]%10 > arr[j+1]%10)
+                {
+                    int buff= arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = buff;
+                }
+        System.out.println("Отсортированный массив:");
+        for (int i = 1; i < arr.length; i++){
+            System.out.println(arr[i]);
+        }
     }
 }
